@@ -1,0 +1,62 @@
+// Sample Java code for backend (using Spring Boot)
+
+@RestController
+@RequestMapping("/api/tasks")
+public class TaskController {
+
+    @Autowired
+    private TaskRepository taskRepository;
+
+    // Endpoint to fetch all tasks
+    @GetMapping
+    public List<Task> getAllTasks() {
+        return taskRepository.findAll();
+    }
+
+    // Endpoint to create a new task
+    @PostMapping
+    public Task createTask(@RequestBody Task task) {
+        return taskRepository.save(task);
+    }
+
+    // Endpoint to update task completion status
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateTask(@PathVariable("id") Long id, @RequestBody Task updatedTask) {
+        Task task = taskRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Task not found with id " + id));
+
+        task.setCompleted(updatedTask.isCompleted());
+        taskRepository.save(task);
+        return ResponseEntity.ok().build();
+    }
+
+    // Endpoint to delete a task
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteTask(@PathVariable("id") Long id) {
+        Task task = taskRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Task not found with id " + id));
+
+        taskRepository.delete(task);
+        return ResponseEntity.ok().build();
+    }
+}
+
+@Entity
+public class Task {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String text;
+    private boolean completed;
+
+    // Getters and setters
+    // Constructors
+    // Other necessary methods
+}
+
+@Repository
+public interface TaskRepository extends JpaRepository<Task, Long> {
+    // Custom query methods if needed
+}

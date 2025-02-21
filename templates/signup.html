@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .divider span {
+            background: #ddd;
+            padding: 0 10px;
+        }
+        .social-btns {
+            display: flex;
+            justify-content: space-between;
+        }
+        .social-btns a {
+            display: block;
+            width: 48%;
+            text-align: center;
+            padding: 10px;
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .google { background-color: #db4437; }
+        .facebook { background-color: #3b5998; }
+        .instagram { background-color: #c32aa3; }
+        .linkedin { background-color: #0077b5; }
+        .github { background-color: #333; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Create an Account</h2>
+    <form id="signup-form">
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn">Sign Up</button>
+    </form>
+
+    <div class="divider">
+        <span>or sign up with</span>
+    </div>
+    
+    <div class="social-btns">
+        <a href = "https://accounts.google.com/"><button class="social-button google">Login with Google</button> </a>
+            <a href = "https://www.facebook.com/login.php/"><button class="social-button facebook">Login with Facebook</button> </a>
+            <a href = "https://www.instagram.com/"><button class="social-button instagram">Login with Instagram</button></a>
+            <a href = "https://www.linkedin.com/login"><button class="social-button linkedin">Login with LinkedIn</button></a>
+            <a href = "https://github.com/login"><button class="social-button github">Login with GitHub</button></a>
+    </div>
+</div>
+
+<script>
+    function signInWithGoogle() {
+        // Implement Google Sign-In logic here
+        alert("Google Sign-In functionality goes here.");
+    }
+
+    document.getElementById('signup-form').onsubmit = function(e) {
+        e.preventDefault();
+        // Handle form submission logic here
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        alert(`Signing up with email: ${email}`);
+    };
+</script>
+
+</body>
+</html>

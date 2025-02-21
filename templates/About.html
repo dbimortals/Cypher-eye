@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        .content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .mission {
+            background-color: #e7f1ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .team {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .team-member {
+            background: #f8f8f8;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            flex: 1 1 250px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .team-member:hover {
+            transform: scale(1.02);
+        }
+        .member-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .member-role {
+            color: #555;
+        }
+        .github-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .github-link:hover {
+            text-decoration: underline;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 600px) {
+            .team-member {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+    <title>About Us - Malware Detector</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>About Us</h1>
+            <h2>Your Trusted Malware Detection Solution</h2>
+        </div>
+        <div class="content">
+            <div class="mission">
+                <h2>Our Mission</h2>
+                <p>
+                    At Malware Detector, our mission is to provide the most effective tools and solutions to protect individuals and businesses from malicious software. We strive to ensure that our users can navigate the digital world safely and securely.
+                </p>
+            </div>
+            <h2>Why Choose Us?</h2>
+            <p>
+                With years of experience in cybersecurity, our team is dedicated to staying ahead of emerging threats. We utilize advanced algorithms and machine learning techniques to detect and neutralize malware, ensuring your data remains secure.
+            </p>
+            <h2>Our Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="https://i.postimg.cc/7L7RnjX4/Screenshot-2024-10-14-233059.png" alt="Aryan Singh, Founder of Malware Detector">
+                    <div class="member-name">Aryan Singh</div>
+                    <div class="member-role">Founder</div>
+                    <a href="https://github.com/dbimortals" class="github-link">GitHub Profile</a>
+                </div>
+                <div class="team-member">
+                    <img src="https://i.postimg.cc/NfbhSh1k/Screenshot-2024-10-14-234602.png" alt="Swarup Ingale, Founder of Malware Detector">
+                    <div class="member-name">Swarup Ingale</div>
+                    <div class="member-role">Founder</div>
+                    <a href="https://github.com/Swarup-Ingale" class="github-link">GitHub Profile</a>
+                </div>
+                <div class="team-member">
+                    <img src="https://i.postimg.cc/5y8J6pk9/Whats-App-Image-2024-10-14-at-11-50-08-PM.jpg" alt="Viraj Dubule, Investor at Malware Detector">
+                    <div class="member-name">Viraj Dubule</div>
+                    <div class="member-role">Investor</div>
+                    <a href="https://github.com/Dubule24" class="github-link">GitHub Profile</a>
+                </div>
+                <div class="team-member">
+                    <img src="https://i.postimg.cc/cLRcX3PK/Whats-App-Image-2024-10-14-at-11-51-54-PM.jpg" alt="Piyush Devre, CEO of Malware Detector">
+                    <div class="member-name">Piyush Devre</div>
+                    <div class="member-role">CEO</div>
+                    <a href="https://github.com/PIYUSH2216" class="github-link">GitHub Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

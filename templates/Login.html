@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .social-login {
+            margin-top: 20px;
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+        }
+
+        .google { background-color: #db4437; /* Google Red */ }
+        .facebook { background-color: #4267B2; /* Facebook Blue */ }
+        .instagram { background-color: #E1306C; /* Instagram Purple */ }
+        .linkedin { background-color: #0077B5; /* LinkedIn Blue */ }
+        .github { background-color: #333; /* GitHub Black */ }
+
+        .social-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .separator {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #ccc;
+        }
+
+        .separator::before { margin-right: 10px; }
+        .separator::after { margin-left: 10px; }
+
+        .or-text { color: #888; font-size: 0.9em; }
+
+        .login-form { margin-top: 20px; }
+
+        .login-form input {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 100%;
+            margin: 10px 0;
+            font-size: 1em;
+        }
+
+        .login-form button {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007bff; /* Primary Blue */
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .login-form button:hover { background-color: #0056b3; /* Darker Blue */ }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #888;
+        }
+    </style>
+    <title>Login Page</title>
+</head>
+<body>  
+    <div class="login-container">
+        <h1>Login</h1>
+        
+        <div class="social-login">
+            <a href="https://accounts.google.com/"><button class="social-button google">Login with Google</button></a>
+            <a href="https://www.facebook.com/login.php/"><button class="social-button facebook">Login with Facebook</button></a>
+            <a href="https://www.instagram.com/"><button class="social-button instagram">Login with Instagram</button></a>
+            <a href="https://www.linkedin.com/login"><button class="social-button linkedin">Login with LinkedIn</button></a>
+            <a href="https://github.com/login"><button class="social-button github">Login with GitHub</button></a>
+        </div>
+        
+        <div class="separator">
+            <span class="or-text">OR</span>
+        </div>
+        
+        <form class="login-form">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        
+        <div class="footer">
+            <p>Forgot your password? <a href="forgot.html">Reset it here</a></p>
+            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://erepublic.brightspotcdn.com/dims4/default/45db339/2147483647/strip/true/crop/1026x535+0+42/resize/840x438!/quality/90/?url=http%3A%2F%2Ferepublic-brightspot.s3.us-west-2.amazonaws.com%2F0b%2Fbb%2F54f9f94a76d0fe05c5a1249c8a8e%2Fshutterstock-651476311.jpg') no-repeat center center fixed; 
+            background-size: cover; 
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .navbar button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .navbar button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-container {
+            background-color: rgba(30, 30, 30, 0.8); 
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 400px; 
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        label {
+            margin-right: 20px;
+        }
+
+        input[type="text"], button {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            width: calc(100% - 26px);
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        input[type="text"] {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+
+        .option-buttons {
+            display: none; 
+            margin-top: 20px;
+        }
+
+        .result {
+            display: none; 
+            margin-top: 20px;
+            font-size: 1.1em;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            color: #fff;
+            max-width: 500px; 
+            overflow-y: auto; 
+            height: auto; 
+        }
+
+        .safe {
+            color: green;
+        }
+
+        .unsafe {
+            color: red;
+        }
+
+        .marquee-container {
+            position: absolute;
+            bottom: 40px; 
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7); 
+            color: #ffffff;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee {
+            display: inline-block;
+            animation: marquee 10s linear infinite; 
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+    <title>Malware Detector</title>
+</head>
+<body>
+    <div class="navbar">
+        <button onclick="location.href='about.html'">About</button>
+        <button onclick="location.href='malware_detector.html'">Malware Detector</button>
+        <button onclick="location.href='whats_new.html'">What's New</button>
+    </div>
+
+    <div class="form-container">
+        <h1>Malware Detector</h1>
+        <h2>Select Input Type</h2>
+        <label>
+            <input type="radio" name="inputType" value="url" id="urlOption"> URL
+        </label>
+        <label>
+            <input type="radio" name="inputType" value="folder" id="folderOption"> Folder Path
+        </label>
+
+        <div class="input-container" id="inputContainer" style="display: none;">
+            <h2>Enter Input</h2>
+            <form id="inputForm">
+                <label for="inputField" id="inputLabel">Input:</label>
+                <input type="text" id="inputField" name="inputField" placeholder="Enter your input here" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="option-buttons" id="optionButtons"></div>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <div class="marquee-container">
+        <div class="marquee" id="dynamicMarquee"></div>
+    </div>
+
+    <script>
+        const urlOption = document.getElementById('urlOption');
+        const folderOption = document.getElementById('folderOption');
+        const inputContainer = document.getElementById('inputContainer');
+        const optionButtons = document.getElementById('optionButtons');
+        const inputField = document.getElementById('inputField');
+        const resultDiv = document.getElementById('result');
+
+        const messages = [
+            "Stay Safe Online: Protect Yourself Against Malware and Viruses.",
+            "Tip: Always keep your software updated to avoid vulnerabilities!",
+            "Did you know? Phishing is one of the most common malware delivery methods.",
+            "Join our community to learn more about cybersecurity!"
+        ];
+
+        let index = 0;
+
+        function updateMarquee() {
+            document.getElementById('dynamicMarquee').innerText = messages[index];
+            index = (index + 1) % messages.length;
+        }
+
+        setInterval(updateMarquee, 5000);
+        updateMarquee();
+
+        urlOption.addEventListener('change', () => {
+            inputContainer.style.display = 'block';
+            document.getElementById('inputLabel').innerText = 'URL:';
+            inputField.placeholder = 'Enter URL here';
+            optionButtons.style.display = 'none';
+            resultDiv.innerHTML = '';
+        });
+
+        folderOption.addEventListener('change', () => {
+            inputContainer.style.display = 'block';
+            document.getElementById('inputLabel').innerText = 'Folder Path:';
+            inputField.placeholder = 'Enter folder path here';
+            optionButtons.style.display = 'none';
+            resultDiv.innerHTML = '';
+        });
+
+        document.getElementById('inputForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const selectedInputType = document.querySelector('input[name="inputType"]:checked').value;
+
+            if (selectedInputType === 'url') {
+                optionButtons.innerHTML = `
+                    <h3>Select an Action</h3>
+                    <button onclick="performAction('scan_url', inputField.value)">Scan URL</button>
+                `;
+            } else if (selectedInputType === 'folder') {
+                optionButtons.innerHTML = `
+                    <h3>Select an Action</h3>
+                    <button onclick="performAction('scan_folder', inputField.value)">Scan Folder</button>
+                `;
+            }
+            optionButtons.style.display = 'block';
+            resultDiv.innerHTML = '';
+        });
+
+        function performAction(action, input) {
+            fetch('/perform_action', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ action: action, input: input })
+            })
+            .then(response => response.json())
+            .then(data => {
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = ''; // Clear previous results
+
+                // Show safe or unsafe messages
+                if (data.safe) {
+                    resultDiv.innerHTML = `<p class="safe">The ${action === 'scan_url' ? 'link' : 'file'} is safe.</p>`;
+                } else if (data.unsafe) {
+                    resultDiv.innerHTML = `<p class="unsafe">The ${action === 'scan_url' ? 'link' : 'file'} is unsafe.</p>`;
+                } else {
+                    resultDiv.innerHTML = `<p style="color: red;">No information available.</p>`;
+                }
+            })
+            .catch(err => {
+                resultDiv.innerHTML = `<p style="color: red;">An error occurred: ${err.message}</p>`;
+            });
+        }
+    </script>
+</body>
+</html>
