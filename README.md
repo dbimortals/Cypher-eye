@@ -1,2 +1,4 @@
 # Cypher-eye
-Usage Save the following main.py file save the Template file on the same folder, run the main.py file n you can visit the website
+A Tool to detect any malacious link as well as scan folder for any ransome, also can be used for encrypting a file using base64, 
+still working on this project 
+stay Tuned for future updates
